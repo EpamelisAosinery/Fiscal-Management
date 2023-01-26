@@ -1,0 +1,52 @@
+.mainFrame {
+    -fx-border-radius: 20%;
+}
+
+.left-form {
+    -fx-background-color: linear-gradient(to bottom right, #F8FF3B, #20D996);
+    -fx-border-color: #000;
+    -fx-border-width: .4px 0px .4px .4px;
+}
+
+.right-form {
+    -fx-background-color: #fff;
+    -fx-border-color: #000;
+    -fx-border-width: .4px .4px .4px 0px;
+}
+
+.closeBtn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.closeBtn:hover {
+    -fx-background-color: #f43f57;
+}
+
+.txtField {
+    -fx-background-color: linear-gradient(to bottom, #efefef, #eee);
+    -fx-background-radius: 4px;
+    -fx-border-color: #000;
+    -fx-border-width: .2px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Tahoma";
+}
+
+.txtField:focused {
+    -fx-background-color: #fff;
+    -fx-border-color: linear-gradient(to bottom right, #F2F200, #20D996);
+    -fx-border-width: 1px;
+}
+
+.btnLogin {
+    -fx-background-color: linear-gradient(to bottom, #1c936d, #14875D);
+    -fx-background-radius: 4px;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+    -fx-cursor: hand;
+}
+
+.btnLogin:hover {
+    -fx-background-color: linear-gradient(to bottom, #20D996, #14875D);
+}
