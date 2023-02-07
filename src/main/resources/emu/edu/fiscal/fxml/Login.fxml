@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emu.edu.fiscal.controller.LoginController">
    <children>
       <AnchorPane prefHeight="539.0" prefWidth="732.0">
          <children>
@@ -38,17 +38,17 @@
                         <Font name="Tahoma Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFldUsername" layoutX="73.0" layoutY="228.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="txtField" stylesheets="@../css/LoginHH.css">
+                  <TextField fx:id="txtFld_UserName" layoutX="73.0" layoutY="228.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="txtField" stylesheets="@../css/LoginHH.css">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField layoutX="73.0" layoutY="273.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="txtField" stylesheets="@../css/LoginHH.css">
+                  <PasswordField fx:id="pswFld_Password" layoutX="73.0" layoutY="273.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="txtField" stylesheets="@../css/LoginHH.css">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <Button alignment="CENTER" layoutX="73.0" layoutY="330.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="220.0" styleClass="btnLogin" stylesheets="@../css/LoginHH.css" text="Login">
+                  <Button fx:id="btn_Login" alignment="CENTER" layoutX="73.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnLoginOnClick" prefHeight="30.0" prefWidth="220.0" styleClass="btnLogin" stylesheets="@../css/LoginHH.css" text="Login">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -56,6 +56,12 @@
                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="271.0" layoutY="2.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="87.0" styleClass="closeBtn" stylesheets="@../css/LoginHH.css" text="X" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="2.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lbl_ErrorMessage" alignment="TOP_LEFT" layoutX="74.0" layoutY="380.0" prefHeight="49.0" prefWidth="220.0" styleClass="errorMessage" stylesheets="@../css/LoginHH.css" wrapText="true" />
+                  <Button fx:id="btn_Register" alignment="CENTER" layoutX="73.0" layoutY="470.0" mnemonicParsing="false" onAction="#btnRegisterOnClick" prefHeight="30.0" prefWidth="72.0" styleClass="btnLogin" stylesheets="@../css/LoginHH.css" text="Register">
+                     <font>
+                        <Font size="15.0" />
                      </font>
                   </Button>
                </children>

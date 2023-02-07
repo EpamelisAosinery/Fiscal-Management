@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -12,7 +11,7 @@ public class FiscalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(FiscalApplication.class.getResource("/LoginHH.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FiscalApplication.class.getResource("/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add("LoginHH.css");
 

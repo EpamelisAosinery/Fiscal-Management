@@ -50,3 +50,10 @@
 .btnLogin:hover {
     -fx-background-color: linear-gradient(to bottom, #20D996, #14875D);
 }
+
+.errorMessage {
+    -fx-background-radius: 4px;
+    -fx-text-fill: #dd1919;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+}
