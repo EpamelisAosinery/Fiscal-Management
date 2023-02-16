@@ -35,9 +35,18 @@ public class LoginController {
 
     public void btnLoginOnClick(ActionEvent event) throws IOException {
         if (isEmpty(txtFld_UserName, pswFld_Password)) {
-            displayErrorMessage("Successfully login");
+            //displayErrorMessage("Successfully login");
+
             if (event.getSource() == btn_Login) {
-                goToDashBoard(event);
+                String username = txtFld_UserName.getText();
+                String password = pswFld_Password.getText();
+
+                String query = "SELECT username " +
+                        "FROM userAuth" +
+                        "WHERE EXISTS" +
+                        "(SELECT username FROM userAuth WHERE username = " + username + ");";
+
+                //goToDashBoard(event);
             }
         }
     }
