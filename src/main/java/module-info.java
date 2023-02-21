@@ -4,6 +4,7 @@ module emu.edu.ema {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
     opens emu.edu.fiscal to javafx.fxml;
     exports emu.edu.fiscal;

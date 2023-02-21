@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.util.Objects;
 
 public class LoginController {
@@ -33,11 +34,46 @@ public class LoginController {
 
     public LoginController() { }
 
-    public void btnLoginOnClick(ActionEvent event) throws IOException {
+    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException {
         if (isEmpty(txtFld_UserName, pswFld_Password)) {
             displayErrorMessage("Successfully login");
             if (event.getSource() == btn_Login) {
-                goToDashBoard(event);
+                String username = txtFld_UserName.getText();
+                String password = pswFld_Password.getText();
+                //goToDashBoard(event);
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fiscaldb", "root", "password");
+                    //Statement statement = connection.createStatement();
+                    PreparedStatement psInsert = null;
+                    PreparedStatement psCheckUserExists = null;
+                    PreparedStatement psCheckPassExists = null;
+                    ResultSet resultSet = null;
+
+                    psCheckUserExists = connection.prepareStatement("SELECT * FROM userAuth WHERE username = ?");
+                    psCheckUserExists.setString(1, username);
+
+                    resultSet = psCheckUserExists.executeQuery();
+
+                    if(resultSet.isBeforeFirst()) {
+                        while(resultSet.next()) {
+                            String retrievePassword = resultSet.getString("password");
+                            if (retrievePassword.equals(password)) {
+                                System.out.println("Exists");
+                                goToDashBoard(event);
+                            }
+                            else
+                                displayErrorMessage("Password not exist");
+                        }
+                    }
+
+                    else {
+                        displayErrorMessage("User not exists");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         }
     }
