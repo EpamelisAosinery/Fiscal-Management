@@ -24,7 +24,11 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="861fb796-ba59-4265-92dd-50139b3dc6a6" dataset="FISCALDB.userInfo" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="861fb796-ba59-4265-92dd-50139b3dc6a6" dataset="FISCALDB.userAuth" active-filter-id="" />
+    <filter-actions connection-id="861fb796-ba59-4265-92dd-50139b3dc6a6" dataset="FISCALDB.userAuth" active-filter-id="de48958b-10ae-44d8-b286-73e6f05454f8">
+      <filter id="de48958b-10ae-44d8-b286-73e6f05454f8" name="3" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="3" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />

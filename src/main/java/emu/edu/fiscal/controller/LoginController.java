@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LoginController {
@@ -33,23 +35,30 @@ public class LoginController {
 
     public LoginController() { }
 
-    public void btnLoginOnClick(ActionEvent event) throws IOException {
+    public void btnLoginOnClick(ActionEvent event) {
+
+
         if (isEmpty(txtFld_UserName, pswFld_Password)) {
             //displayErrorMessage("Successfully login");
 
             if (event.getSource() == btn_Login) {
                 String username = txtFld_UserName.getText();
                 String password = pswFld_Password.getText();
-
-                String query = "SELECT username " +
-                        "FROM userAuth" +
-                        "WHERE EXISTS" +
-                        "(SELECT username FROM userAuth WHERE username = " + username + ");";
-
                 //goToDashBoard(event);
+
+                UserInfo user = new UserInfo();
+                try {
+                    if (user.authentication(username, password))
+                        goToDashBoard(event);
+
+                    else
+                        displayErrorMessage("Username or Password does not exist");
+                } catch (Exception e) {
+                }
             }
         }
     }
+
 
     public void btnRegisterOnClick(ActionEvent event) throws IOException{
         if (event.getSource() == btn_Register) {
