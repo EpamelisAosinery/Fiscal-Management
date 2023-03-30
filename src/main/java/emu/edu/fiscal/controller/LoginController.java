@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
+
 import java.util.Objects;
 
 public class LoginController {
@@ -35,8 +35,8 @@ public class LoginController {
 
     public LoginController() { }
 
-    public void btnLoginOnClick(ActionEvent event) {
 
+    public void btnLoginOnClick(ActionEvent event) {
 
         if (isEmpty(txtFld_UserName, pswFld_Password)) {
             //displayErrorMessage("Successfully login");
@@ -45,6 +45,7 @@ public class LoginController {
                 String username = txtFld_UserName.getText();
                 String password = pswFld_Password.getText();
                 //goToDashBoard(event);
+
 
                 UserInfo user = new UserInfo();
                 try {
