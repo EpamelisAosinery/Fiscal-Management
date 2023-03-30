@@ -3,6 +3,7 @@ package emu.edu.fiscal.controller;
 
 import java.io.*;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Objects;
 /*
@@ -15,15 +16,15 @@ public class UserInfo {
 
 
     PreparedStatement psGetInfo = null;
-    ResultSet resultSet = null;
-    Connection connection = null;
+    static ResultSet resultSet = null;
+    static Connection connection = null;
 
     public UserInfo(){
         id = 0;
     }
 
     //Method creates a connection to the database
-    public void createConnection() {
+    public static void createConnection() {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/FISCALDB", "root", "password");
         } catch (Exception e) {
@@ -32,7 +33,7 @@ public class UserInfo {
     }
 
     //checks if username and password is in database and returns a boolean value
-    public  boolean authentication(String username, String password){
+    public  static boolean authentication(String username, String password){
         try {
             PreparedStatement psCheckUserExists = null;
             createConnection();
@@ -66,7 +67,7 @@ public class UserInfo {
     }
 
     //returns the total income of the user
-    public double getIncome(){
+    public static double getIncome(){
         PreparedStatement psGetIncome = null;
         double income = 0;
         try {
@@ -78,13 +79,18 @@ public class UserInfo {
 
             }
         }
-        catch(Exception e){}
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return income;
     }
 
 
     //returns the expense names  from the database in the form of array list
-    public ArrayList<String>  getExpenseNames(){
+    public static ArrayList<String>  getExpenseNames(){
         PreparedStatement psGetExpenseName = null;
         ArrayList<String> expenseNames = new ArrayList<String>();
         ResultSet rs1 = null;
@@ -100,10 +106,15 @@ public class UserInfo {
             //remove the first null element
             expenseNames.remove(0);
         }
-        catch(Exception e){}
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return expenseNames;
     }
-    public ArrayList<Double>  getExpenseValues(){
+    public static ArrayList<Double>  getExpenseValues(){
         PreparedStatement psGetExpenseValue= null;
         ArrayList<Double> expenseVals = new ArrayList<Double>();
         ResultSet rs1 = null;
@@ -117,8 +128,74 @@ public class UserInfo {
             //remove the first null element
             expenseVals.remove(0);
         }
-        catch(Exception e){}
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return expenseVals;
     }
+    /*
+        Takes the new user information and inserts this information into the database
+        */
+    public static void insertUser(String userName, String email, String password, String name){
+        try {
+            PreparedStatement psInsertUser = connection.prepareStatement("INSERT INTO UserAuth (username, email, password, name)" +
+                    " VALUES( ?,?,?,?)");
 
+            psInsertUser.setString(1, userName);
+            psInsertUser.setString(2, email);
+            psInsertUser.setString(3, password);
+            psInsertUser.setString(4, name);
+            int row = psInsertUser.executeUpdate();
+
+
+        }
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    /*
+    Takes the name and value of an expense and inserts this into the database
+    */
+    public static void insertExpense(String name, double value){
+        try {
+            PreparedStatement psInsertExp = connection.prepareStatement("INSERT INTO userInfo(userID, expenseName, expenseValue, transactionDate) VALUES (?,?,?, ?)");
+            psInsertExp.setInt(1, id);
+            psInsertExp.setString(2, name);
+            psInsertExp.setDouble(3, value);
+            psInsertExp.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
+            int row = psInsertExp.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    /*
+   Takes the name and value of an expense and inserts this into the database
+   */
+    public static void insertIncome(double value){
+        try {
+            PreparedStatement psInsertIn = connection.prepareStatement("INSERT INTO userInfo(income, incomeDate, userID) VALUES (?,?,?)");
+            psInsertIn.setInt(3, id);
+            psInsertIn.setDouble(1, value);
+            psInsertIn.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now()));
+            int row = psInsertIn.executeUpdate();
+
+        }
+        catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }
