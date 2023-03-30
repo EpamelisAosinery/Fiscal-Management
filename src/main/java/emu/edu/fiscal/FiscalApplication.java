@@ -6,10 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class FiscalApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+
+        //String sql = "INSERT INTO";
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(FiscalApplication.class.getResource("/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -23,6 +27,8 @@ public class FiscalApplication extends Application {
     }
 
     public static void main(String[] args) {
+
         launch();
+
     }
 }

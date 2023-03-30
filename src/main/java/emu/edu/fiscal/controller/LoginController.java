@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+
 import java.util.Objects;
 
 public class LoginController {
@@ -34,49 +35,31 @@ public class LoginController {
 
     public LoginController() { }
 
-    public void btnLoginOnClick(ActionEvent event) throws IOException, SQLException {
+
+    public void btnLoginOnClick(ActionEvent event) {
+
         if (isEmpty(txtFld_UserName, pswFld_Password)) {
-            displayErrorMessage("Successfully login");
+            //displayErrorMessage("Successfully login");
+
             if (event.getSource() == btn_Login) {
                 String username = txtFld_UserName.getText();
                 String password = pswFld_Password.getText();
                 //goToDashBoard(event);
 
+
+                UserInfo user = new UserInfo();
                 try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fiscaldb", "root", "password");
-                    //Statement statement = connection.createStatement();
-                    PreparedStatement psInsert = null;
-                    PreparedStatement psCheckUserExists = null;
-                    PreparedStatement psCheckPassExists = null;
-                    ResultSet resultSet = null;
+                    if (user.authentication(username, password))
+                        goToDashBoard(event);
 
-                    psCheckUserExists = connection.prepareStatement("SELECT * FROM userAuth WHERE username = ?");
-                    psCheckUserExists.setString(1, username);
-
-                    resultSet = psCheckUserExists.executeQuery();
-
-                    if(resultSet.isBeforeFirst()) {
-                        while(resultSet.next()) {
-                            String retrievePassword = resultSet.getString("password");
-                            if (retrievePassword.equals(password)) {
-                                System.out.println("Exists");
-                                goToDashBoard(event);
-                            }
-                            else
-                                displayErrorMessage("Password not exist");
-                        }
-                    }
-
-                    else {
-                        displayErrorMessage("User not exists");
-                    }
+                    else
+                        displayErrorMessage("Username or Password does not exist");
                 } catch (Exception e) {
-                    e.printStackTrace();
                 }
-
             }
         }
     }
+
 
     public void btnRegisterOnClick(ActionEvent event) throws IOException{
         if (event.getSource() == btn_Register) {
