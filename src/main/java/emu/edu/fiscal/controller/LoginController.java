@@ -47,9 +47,9 @@ public class LoginController {
                 //goToDashBoard(event);
 
 
-                UserInfo user = new UserInfo();
+
                 try {
-                    if (user.authentication(username, password))
+                    if (UserInfo.authentication(username, password))
                         goToDashBoard(event);
 
                     else

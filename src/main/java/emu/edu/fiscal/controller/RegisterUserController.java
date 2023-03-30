@@ -20,6 +20,7 @@ public class RegisterUserController {
     private Stage stage;
     private Scene scene;
 
+
     private void btnLoginOnClick(ActionEvent event) throws IOException{
         if (event.getSource() == btn_Back) {
             goToLoginScene(event);
