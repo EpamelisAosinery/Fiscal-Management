@@ -1,0 +1,33 @@
+.parent {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30px;
+}
+.sidebar{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30px 30px 0px 0px;
+}
+.sidebar_opt{
+    -fx-fill: C1C1C1;
+}
+.pane{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #C1C1C1;
+    -fx-background-radius: 30px 30px 30x 30px;
+    -fx-border-radius: 30px 30px 30px 30px;
+}
+.plus_btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #C1C1C1;
+    -fx-border-style: dashed;
+}
+.colored_card{
+    -fx-background-color: linear-gradient(to right, #A4260B, #EE5A3B);
+    -fx-background-radius: 10px;
+}
+.uncolored_card{
+    -fx-background-color: #f3f3f3;
+    -fx-background-color: 100%;
+}
+

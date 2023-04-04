@@ -1,11 +1,9 @@
 package emu.edu.fiscal.controller;
 
 
-import java.io.*;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 /*
 Class that will handle interacting with the database
  */
@@ -47,8 +45,7 @@ public class UserInfo {
                     String retrievePassword = resultSet.getString("password");
 
                     if (retrievePassword.equals(password)) {
-                        int userId = resultSet.getInt("id");
-                        id  =  userId;
+                        id  = resultSet.getInt("id");
                         return true;
                     } else
                         return false;

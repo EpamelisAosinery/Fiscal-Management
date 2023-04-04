@@ -8,7 +8,7 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
@@ -23,7 +23,11 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="3493ba98-c5ce-4d3b-8e37-5c3b2a89aa67" dataset="fiscaldb.userauth" active-filter-id="" />
+    <filter-actions connection-id="3493ba98-c5ce-4d3b-8e37-5c3b2a89aa67" dataset="fiscaldb.userauth" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="3493ba98-c5ce-4d3b-8e37-5c3b2a89aa67" dataset="fiscaldb.userinfo" active-filter-id="EMPTY_FILTER" />
+  </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$APPLICATION_CONFIG_DIR$/consoles/db/113c5439-bbe8-4697-a3f4-a6f2657fa6d7/console.sql" connection-id="virtual-mysql-connection" session-id="MAIN" current-schema="" />
@@ -516,5 +520,8 @@
         </visibility-settings>
       </environment>
     </general-settings>
+  </component>
+  <component name="DBNavigator.Project.StatementExecutionManager">
+    <execution-variables />
   </component>
 </project>

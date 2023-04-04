@@ -38,12 +38,12 @@
                         <Font name="Tahoma Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFld_UserName" layoutX="73.0" layoutY="228.0" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="txtField" stylesheets="@../css/LoginHH.css">
+                  <TextField fx:id="txtFld_UserName" layoutX="73.0" layoutY="228.0" onKeyPressed="#handleEnterKey" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="txtField" stylesheets="@../css/LoginHH.css">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="pswFld_Password" layoutX="73.0" layoutY="273.0" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="txtField" stylesheets="@../css/LoginHH.css">
+                  <PasswordField fx:id="pswFld_Password" layoutX="73.0" layoutY="273.0" onKeyPressed="#handleEnterKey" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="txtField" stylesheets="@../css/LoginHH.css">
                      <font>
                         <Font size="14.0" />
                      </font>

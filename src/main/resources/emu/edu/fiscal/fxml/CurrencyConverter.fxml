@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="501.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emu.edu.fiscal.controller.CurrencyController">
+   <children>
+      <ComboBox fx:id="cmb_CurrencyInput" layoutX="97.0" layoutY="246.0" prefHeight="43.0" prefWidth="234.0" />
+      <ComboBox fx:id="cmb_CurrencyOutput" layoutX="522.0" layoutY="246.0" prefHeight="43.0" prefWidth="234.0" />
+      <TextField fx:id="txtFld_Input" layoutX="97.0" layoutY="145.0" prefHeight="66.0" prefWidth="234.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFld_Output" layoutX="522.0" layoutY="145.0" prefHeight="66.0" prefWidth="234.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btn_Result" layoutX="378.0" layoutY="314.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="97.0" text="Result">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl_CurrencyRate" layoutX="175.0" layoutY="418.0" prefHeight="37.0" prefWidth="520.0" />
+   </children>
+</AnchorPane>
